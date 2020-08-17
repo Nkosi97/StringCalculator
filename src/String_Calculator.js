@@ -14,7 +14,7 @@ function add(str) {
 
   }
   if (myString != "") {
-    throw Error("negatives not allowed" + myString);
+    throw Error("negatives not allowed" + " " +  myString);
   }
   for (let i = 0; i < nums.length; i++) {
 
