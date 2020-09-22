@@ -22,7 +22,7 @@ describe("add()", function () {
         expect(add("//;\n1;2")).toBe(3);
     });
 
-    it("should return a error message and a negative number(s)", function () {
+    it("should return an error message and a negative number(s)", function () {
         expect(() => {
             add("/-1\n-2%")
         }).toThrowError("negatives not allowed -1 -2 ");
