@@ -30,4 +30,4 @@ function add(str) {
 }
 
 
-module.exports = {add}
+module.exports = {add};
