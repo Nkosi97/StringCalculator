@@ -1,4 +1,4 @@
-let Add = require("../src/String_Calculator")
+let Add = require("../src/stringCalculator")
 let add = Add.add
 
 describe("add()", function () {
