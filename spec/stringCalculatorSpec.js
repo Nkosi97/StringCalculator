@@ -1,12 +1,12 @@
-let Add = require("../src/stringCalculator")
-let add = Add.add
+let test = require("../src/stringCalculator")
+let add = test.add
 
 describe("add()", function () {
 
     it("allows up to two numbers separated by a comma.", function () {
-        expect(add("")).toBe(0) // Allows 0 numbers
-        expect(add("1")).toBe(1) // Allows 1 number
-        expect(add("1,2")).toBe(3) // Allows 2 numbers
+        expect(add("")).toBe(0) 
+        expect(add("1")).toBe(1) 
+        expect(add("1,2")).toBe(3)
     })
 
     it("handles more numbers and returns their sum.", function () {
@@ -20,7 +20,7 @@ describe("add()", function () {
 
     it("supports different delimiters", function () {
         expect(add("//;\n1;2")).toBe(3);
-    });
+       });
 
     it("returns an error message and a negative number(s)", function () {
         expect(() => {
@@ -31,5 +31,22 @@ describe("add()", function () {
     it("ignores numbers bigger than 1000", function () {
         expect(add("2 + 1001")).toEqual(2);
     });
+    
+    it("returns an error message if input is invalid", function () {
+        expect(() => {
+            add("//;\n1000;1;2;")
+        }).toThrowError("ERROR: invalid input");
+    })
 
+    it("returns an error message if input is invalid", function () {
+        expect(() => {
+            add("   //;\n1000,1;2")
+        }).toThrowError("ERROR: invalid input");
+    })
+
+    it("returns an error message if input is invalid", function () {
+        expect(() => {
+            add("1,2,3//;\n1000,1;2")
+        }).toThrowError("ERROR: invalid input");
+    })
 })
